@@ -1,5 +1,5 @@
 /*
-Theme Name: Borstein
+Theme Name: SKK
 
   1. >>> Headr Style
   2. >>> Banner Style
@@ -65,6 +65,7 @@ svg,img { max-width: 100%; height: auto; }
 .ds-social a{ width: 30px; height: 30px; background-color: #CBFE00; border-radius: 100%; text-align: center; display: flex; justify-content: center; align-items: center; font-size:1.25rem; color:#2A2A2A }
 .ds-social li:hover a{background-color: #CBFE00; color:#000 }
 
+/* .ds-resized-image{ width: 370px; height: 555px;} */
 .ds-banner figure{width: 370px; position: relative;}
 .ds-banner figure figcaption{ color: #FFF; font-size:1.875rem; position: absolute; bottom: 0; width: 100%; text-align: center; padding-bottom:2.5rem  }
 /*-----------------------------------------------------------------
@@ -114,7 +115,7 @@ svg,img { max-width: 100%; height: auto; }
 /*-----------------------------------------------------------------
   7. >>> Footer Style
 ----------------------------------------------------------------*/
-.ds-footer{ padding: 2.5rem 0; text-align: center; color: #CECECE; font-size: 1.25rem }
+.ds-footer{ padding: 2.5rem 0; text-align: center; color: #CECECE; font-size: 0.75rem }
 .ds-footer a{color: #CECECE }
 .ds-footer a:hover{color: #CECECE; text-decoration: underline; }
 /*-------------------------------------------------------------------------------
