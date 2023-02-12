@@ -14,6 +14,7 @@ Theme Name: SKK
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------*/
 :root {
+	/* Define font size variables */
 	--font_14:0.875rem;
 	--font_16:1rem;
 	--font_30:1.875rem;
@@ -27,47 +28,351 @@ Theme Name: SKK
 	--margin-100:6.25rem;
 	--margin-120:7.5rem;   
 }
-html {font-family: 'Poppins', sans-serif;background-color:#2A2A2A}
-body {font-family: 'Poppins', sans-serif;overflow-x: hidden; background-color:#2A2A2A; font-weight:400;font-style: normal; color: #FFF; font-size: var(--font_14)}
-a,a:hover,a:focus,i,input,button,input:focus,.transition {text-decoration: none;outline: none;transition-delay: 0s;transition-duration: 0.4s;transition-property: all;transition-timing-function: ease;box-shadow: none;}
-a{color: #000}
-iframe {border: 0;outline: none;}
-::-moz-selection {background: var(--red);text-shadow: none;color:var(--white)}
-::selection {background:var(--red);text-shadow: none;color:var(--white)}
-img {max-width: 100%;border: none;outline: none;height: auto;}
-input,textarea {border-radius: 0;resize: none;}
-ul {padding: 0;margin: 0;}
+
+/* Set default font family and background color for the entire document */
+html {
+  font-family: 'Poppins', sans-serif;
+  background-color: #2A2A2A;
+}
+
+/* Set font family and background color for the body */
+body {
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  background-color: #2A2A2A;
+  font-weight: 400;
+  font-style: normal;
+  color: #FFF;
+  font-size: var(--font_14);
+}
+
+/* 
+	Remove underlines and borders for links, icons, inputs, buttons, 
+	and elements with the class "transition" 
+*/
+a, a:hover, a:focus, i, input, button, input:focus, .transition {
+  text-decoration: none;
+  outline: none;
+  transition-delay: 0s;
+  transition-duration: 0.4s;
+  transition-property: all;
+  transition-timing-function: ease;
+  box-shadow: none;
+}
+
+/* Set the color of links */
+a {
+  color: #000;
+}
+
+/* Remove borders for iframes */
+iframe {
+  border: 0;
+  outline: none;
+}
+
+/* Change selection color for text selection */
+::-moz-selection {
+  background: var(--red);
+  text-shadow: none;
+  color: var(--white);
+}
+
+::selection {
+  background: var(--red);
+  text-shadow: none;
+  color: var(--white);
+}
+
+/* Set images to take up the maximum width and height */
+img {
+  max-width: 100%;
+  border: none;
+  outline: none;
+  height: auto;
+}
+
+/* Remove borders for inputs and textareas */
+input, textarea {
+  border-radius: 0;
+  resize: none;
+}
+
+/* Remove default padding and margin for unordered lists */
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+/* Add custom font families */
 @font-face {
-font-family: 'DM Serif Display', serif;
-font-family: 'Poppins', sans-serif;}
-input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {background-color: transparent;background-image: none;color:#000;}
+	font-family: 'DM Serif Display', serif;
+	font-family: 'Poppins', sans-serif;
+}
+
+/* Autofill styles */
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+	background-color: transparent;
+	background-image: none;
+	color:#000;
+}
+
 /* 1.2 Typography */
 h1,h2,h3,h4,h5,h6 {font-family: 'DM Serif Display', serif;}
 figure{ margin: 0 }
 svg,img { max-width: 100%; height: auto; }
 
 /*-----------------------------------------------------------------
-  1. >>> Headr Style
+  1. >>> Header Style
 ----------------------------------------------------------------*/
-.ds-header{ padding-top:2.5rem; padding-bottom: 7.8125rem; position: relative;  }
-.ds-logo a{ display: inline-block; background-color: #CBFE00; font-weight: 600; font-size: 1.125rem; padding: 0  0.4375rem; color: #000}
-.ds-logo a:hover,.ds-logo a:focus{color: #000}
+
+/* 
+  The `.ds-header` class sets the padding-top and padding-bottom 
+  properties to 2.5rem and 7.8125rem respectively. The `position` 
+  property is set to `relative` which makes this element a positioned 
+  element. 
+*/
+.ds-header{ 
+  padding-top:2.5rem; 
+  padding-bottom: 7.8125rem; 
+  position: relative;  
+}
+
+/* 
+  The `.ds-logo a` class styles the links inside the header. 
+  `display: inline-block` makes the links display as inline-block elements. 
+  The `background-color` is set to `#CBFE00`, the `font-weight` is set to `600`, 
+  `font-size` is set to `1.125rem`, and `color` is set to `#000`. 
+  `padding: 0 0.4375rem` adds padding to the top and bottom of the link, 
+  and the left and right of the link respectively.
+*/
+.ds-logo a{ 
+  display: inline-block; 
+  background-color: #CBFE00; 
+  font-weight: 600; 
+  font-size: 1.125rem; 
+  padding: 0  0.4375rem; 
+  color: #000;
+  position: relative;
+	text-decoration: none;
+	border-radius: 0.25rem;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease-in-out;
+}
+
+/* 
+  The `.ds-logo a:hover` and `.ds-logo a:focus` classes style the link 
+  when the user hovers over or focuses on the link. The `color` property 
+  is set to `#000`, which sets the text color to black.
+*/
+.ds-logo a:hover, .ds-logo a:focus{
+	background-color: #000;
+	color: #CBFE00;
+	cursor: pointer;
+}
+
+/* .ds-logo a:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+	border-radius: 0.25rem;
+  border: 1px solid #000;
+  animation: animate-border 4s linear infinite;
+}
+
+@keyframes animate-border {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(2);
+  }
+  50% {
+    transform: scale(1);
+  }
+} */
+
+.ds-logo a:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 100%;
+  height: 100%;
+	border-radius: 0.25rem;
+  border: 2px solid #CBFE00;
+  animation: rotate-border-animation 2s linear infinite;
+}
+
+@keyframes rotate-border-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* .ds-logo a:after {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: -0.3125rem;
+	right: -0.3125rem;
+	border: 0.125rem solid #000;
+	border-radius: 0.25rem;
+	animation: move-right 6s linear infinite;
+}
+	
+@keyframes move-right {
+	0% { transform: translateX(-100%) }
+	25% { transform: translateX(100%) }
+	50% { transform: translateX(100%) }
+	100% { transform: translateX(-100%) }
+}
+
+.ds-logo a:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: -0.3125rem;
+	right: -0.3125rem;
+	border: 0.125rem solid #000;
+	border-radius: 0.25rem;
+  animation: move-down 6s linear infinite;
+}
+
+@keyframes move-down {
+	0% { transform: translateY(-100%) }
+	25% { transform: translateY(100%) }
+	50% { transform: translateY(100%) }
+	100% { transform: translateY(-100%) }
+} */
+
 /*-----------------------------------------------------------------
   2. >>> Banner Style
 ----------------------------------------------------------------*/
-.ds-banner{ margin-bottom: 8.125rem }
-.ds-banner-hed{ font-size: 5.3125rem; line-height:5rem  }
-.ds-image-shadow{box-shadow:30px 30px #C7F900;}
-/*.ds-banner-left{display: flex; justify-content: space-between; flex-direction: column;}*/
-.ds-social{ list-style: none; display: flex; align-items: center;margin-top: 2.5rem }
-.ds-social li{ margin-right: 15px }
-.ds-social li:alst-child{ margin-right: 0 }
-.ds-social a{ width: 30px; height: 30px; background-color: #CBFE00; border-radius: 100%; text-align: center; display: flex; justify-content: center; align-items: center; font-size:1.25rem; color:#2A2A2A }
-.ds-social li:hover a{background-color: #CBFE00; color:#000 }
+/* Set a bottom margin of 8.125rem for the .ds-banner class */
+.ds-banner{ 
+	margin-bottom: 8.125rem 
+}
 
-/* .ds-resized-image{ width: 370px; height: 555px;} */
-.ds-banner figure{width: 370px; position: relative;}
-.ds-banner figure figcaption{ color: #FFF; font-size:1.875rem; position: absolute; bottom: 0; width: 100%; text-align: center; padding-bottom:2.5rem  }
+/* 
+	Set the font size of the header text to 5.3125rem and line height 
+	to 5rem for .ds-banner-hed class 
+*/
+.ds-banner-hed{ 
+	font-size: 5.3125rem; 
+	line-height:5rem 
+}
+
+/* 
+	Add a box shadow effect to the image with 30px x 30px size and 
+	color #C7F900 for .ds-image-shadow class 
+*/
+.ds-image-shadow{
+	box-shadow:30px 30px #C7F900;
+	/* animation: moveImageShadow 2s ease-in-out infinite alternate; */
+	animation: pulse 3s infinite;
+}
+
+/* @keyframes moveImageShadow {
+	0% { transform: translateY(0); }
+	100% { transform: translateY(30px); }
+} */
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 25px 25px 0px #C7F900;
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 25px 25px 25px #C7F900;
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 25px 25px 0px #C7F900;
+  }
+}
+
+/* 
+	Define the styles for the social media icons container. Remove the default 
+	list-style, display as a flex container and align the items vertically. Set a 
+	top margin of 2.5rem. 
+*/
+.ds-social{ 
+	list-style: none; 
+	display: flex; 
+	align-items: center;
+	margin-top: 2.5rem 
+}
+
+/* Add a right margin of 15px for each list item */
+.ds-social li{ 
+	margin-right: 15px 
+}
+
+/* Remove the right margin for the last list item */
+.ds-social li:alst-child{ 
+	margin-right: 0 
+}
+
+/* 
+	Define the styles for each social media icon. Set the width and height 
+	to 30px, with a green background-color of #CBFE00, circular border-radius, 
+	text alignment to center and display as a flex container. Set font-size to 
+	1.25rem and color to #2A2A2A. 
+*/
+.ds-social a{ 
+	width: 30px; 
+	height: 30px; 
+	background-color: #CBFE00; 
+	border-radius: 100%; 
+	text-align: center; 
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+	font-size:1.25rem; 
+	color:#2A2A2A 
+}
+
+/* Change the background color to #CBFE00 and text color to #000 on hover */
+.ds-social li:hover a{
+	background-color: #CBFE00; 
+	color:#000 
+}
+
+/* Set the width of the figure to 370px and its position to relative */
+.ds-banner figure{
+	width: 370px; 
+	position: relative;
+}
+
+/* 
+	Add a white colored caption with font-size 1.875rem to the bottom of the 
+	figure and make it span the full width of the figure. Add a padding-bottom 
+	of 2.5rem 
+*/
+.ds-banner figure figcaption{ 
+	color: #FFF; 
+	font-size:1.875rem; 
+	position: absolute; 
+	bottom: 0; 
+	width: 100%; 
+	text-align: center; 
+	padding-bottom:2.5rem; 
+	animation: pulse 3s infinite;
+}
+
 /*-----------------------------------------------------------------
   3. >>> Resume Style
 ----------------------------------------------------------------*/
@@ -92,6 +397,33 @@ svg,img { max-width: 100%; height: auto; }
 .ds-projects-loop section{ margin-top: 5.875rem }
 .ds-projects-loop section h3{font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.25rem}
 .ds-projects-loop section span{ font-size: 1rem; font-weight: 400 }
+
+/*-----------------------------------------------------------------
+	>>> Custom General Style
+-----------------------------------------------------------------*/
+.video-container {
+  width: 560px;
+  height: 315px;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.figures-padding {
+  padding-top: 25px;
+	padding-bottom: 25px;
+}
+
 /*-----------------------------------------------------------------
   5. >>> Testimonials Style
 ----------------------------------------------------------------*/
