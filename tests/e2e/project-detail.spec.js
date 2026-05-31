@@ -28,7 +28,7 @@ test('project-1 detail page renders correctly', async ({ page }) => {
   await expect(page.locator('main')).toBeVisible();
 });
 
-test('project-1 a11y scan (strict mode toggled via A11Y_STRICT)', async ({ page }, testInfo) => {
+test('project-1 has no critical a11y violations', async ({ page }, testInfo) => {
   await page.goto('/projects/project-1.html');
   await page.waitForLoadState('networkidle');
   const results = await new AxeBuilder({ page })
@@ -41,9 +41,5 @@ test('project-1 a11y scan (strict mode toggled via A11Y_STRICT)', async ({ page 
   });
 
   const critical = results.violations.filter(v => v.impact === 'critical');
-  if (process.env.A11Y_STRICT === '1') {
-    expect(critical, `Critical a11y on project-1: ${critical.map(v => v.id).join(', ')}`).toEqual([]);
-  } else {
-    console.log(`[a11y] project-1 critical (non-strict): ${critical.map(v => v.id).join(', ') || 'none'}`);
-  }
+  expect(critical, `Critical a11y on project-1: ${critical.map(v => v.id).join(', ')}`).toEqual([]);
 });

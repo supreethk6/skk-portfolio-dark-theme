@@ -322,8 +322,8 @@ svg,img { max-width: 100%; height: auto; }
 }
 
 /* Remove the right margin for the last list item */
-.ds-social li:alst-child{ 
-	margin-right: 0 
+.ds-social li:last-child{
+	margin-right: 0
 }
 
 /* 

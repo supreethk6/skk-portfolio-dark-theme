@@ -9,17 +9,17 @@
     "wcag/h30": "warn",
     "wcag/h32": "warn",
     "wcag/h36": "warn",
-    "wcag/h37": "warn",
     "wcag/h67": "warn",
     "wcag/h71": "warn",
     "no-redundant-role": "warn",
     "attr-quotes": ["error", { "style": "double" }],
     "doctype-style": ["error", { "style": "lowercase" }],
 
-    "close-order": "warn",
-    "attribute-allowed-values": "warn",
-    "no-raw-characters": "warn",
-    "script-type": "warn",
-    "no-deprecated-attr": "warn"
+    "wcag/h37": "error",
+    "close-order": "error",
+    "attribute-allowed-values": "error",
+    "no-raw-characters": "error",
+    "script-type": "error",
+    "no-deprecated-attr": "error"
   }
 }
