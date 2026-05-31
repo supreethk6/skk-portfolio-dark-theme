@@ -265,13 +265,55 @@ svg,img { max-width: 100%; height: auto; }
 	margin-bottom: 8.125rem 
 }
 
-/* 
-	Set the font size of the header text to 5.3125rem and line height 
-	to 5rem for .ds-banner-hed class 
+/*
+	Banner eyebrow — small uppercase Poppins, lime accent, sits above the h1.
 */
-.ds-banner-hed{ 
-	font-size: 5.3125rem; 
-	line-height:5rem 
+.ds-banner-eyebrow {
+	font-family: 'Poppins', sans-serif;
+	font-size: 0.75rem;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	color: #CBFE00;
+	font-weight: 600;
+	margin: 0 0 1.25rem;
+}
+
+/*
+	Hero h1 — DM Serif Display, tight line-height. The lime ampersand
+	is a small visual anchor — kept subtle.
+*/
+.ds-banner-hed {
+	font-size: 4.5rem;
+	line-height: 1.04;
+	margin: 0 0 1rem;
+}
+.ds-banner-amp {
+	color: #CBFE00;
+	font-style: italic;
+}
+
+/*
+	Banner subtitle — italic DM Serif Display, mid-size, names the domain.
+*/
+.ds-banner-sub {
+	font-family: 'DM Serif Display', serif;
+	font-style: italic;
+	font-size: 1.875rem;
+	line-height: 1.2;
+	color: #FFF;
+	margin: 0 0 1.5rem;
+}
+
+/*
+	Banner tagline — Poppins, muted, single-sentence positioning statement.
+*/
+.ds-banner-tagline {
+	font-family: 'Poppins', sans-serif;
+	font-size: 1.0625rem;
+	line-height: 1.65;
+	color: #B9B9B9;
+	max-width: 36rem;
+	margin: 0;
 }
 
 /* 
@@ -455,7 +497,10 @@ svg,img { max-width: 100%; height: auto; }
 -------------------------------------------------------------------------------*/
 @media (max-width: 767px) {
 	.ds-header {padding-top: 2.5rem;padding-bottom:2.5rem;}
-	.ds-banner-hed {font-size: 2.3125rem;line-height: 3rem;}
+	.ds-banner-eyebrow { font-size: 0.625rem; letter-spacing: 2px; }
+	.ds-banner-hed {font-size: 2.3125rem;line-height: 1.1;}
+	.ds-banner-sub { font-size: 1.375rem; }
+	.ds-banner-tagline { font-size: 1rem; }
 	.ds-banner .container{ position: relative; padding-bottom: 90px }
 	.ds-social{ position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
 	.ds-banner figure{ width: 90%; margin: 0 auto; margin-top: 40px }
@@ -477,7 +522,8 @@ svg,img { max-width: 100%; height: auto; }
 
 @media (min-width: 768px) and (max-width: 991px) {
 .ds-header{padding-bottom: 3.8125rem;}
-.ds-banner-hed{font-size: 3.3125rem;line-height: 4rem;}
+.ds-banner-hed{font-size: 3.25rem; line-height: 1.08;}
+.ds-banner-sub { font-size: 1.5rem; }
 .ds-banner figure{ margin-right: 1.875rem }
 .ds-projects-section h2{ max-width: 60% }
 .ds-projects-loop figure{ margin-right: 40px }

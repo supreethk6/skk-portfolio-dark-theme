@@ -13,6 +13,26 @@ test.describe('Homepage — structural invariants', () => {
     await expect(page.locator('html')).toHaveAttribute('lang', /en/);
   });
 
+  test('hero positions SKK as TPM and Chief Architect', async ({ page }) => {
+    await page.goto('/index.html');
+    const h1 = page.locator('.ds-banner-hed');
+    await expect(h1).toContainText(/Technical Program Manager/i);
+    await expect(h1).toContainText(/Chief Architect/i);
+  });
+
+  test('hero subtitle names the domain', async ({ page }) => {
+    await page.goto('/index.html');
+    await expect(page.locator('.ds-banner-sub')).toContainText(/Autonomy|Robotics|AI/i);
+  });
+
+  test('hero tagline is visible and non-empty', async ({ page }) => {
+    await page.goto('/index.html');
+    const tagline = page.locator('.ds-banner-tagline');
+    await expect(tagline).toBeVisible();
+    const text = await tagline.textContent();
+    expect(text.trim().length).toBeGreaterThan(20);
+  });
+
   test('hero section is visible above the fold', async ({ page }) => {
     await page.goto('/index.html');
     const banner = page.locator('.ds-banner');
