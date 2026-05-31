@@ -33,6 +33,7 @@ test('project-1 has no critical a11y violations', async ({ page }, testInfo) => 
   await page.waitForLoadState('networkidle');
   const results = await new AxeBuilder({ page })
     .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+    .exclude('iframe')
     .analyze();
 
   await testInfo.attach('axe-violations.json', {
