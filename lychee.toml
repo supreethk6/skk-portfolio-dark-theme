@@ -24,5 +24,5 @@ exclude = [
 # Treat GitHub rate-limit responses (429) as success so CI doesn't flap
 accept = [200, 206, 301, 302, 304, 307, 308, 429]
 
-# Headers (some sites block default user-agents)
-headers = ["User-Agent=Mozilla/5.0 (compatible; SKK-Portfolio-LinkCheck/1.0)"]
+# Custom user-agent (some sites block defaults)
+user_agent = "Mozilla/5.0 (compatible; SKK-Portfolio-LinkCheck/1.0)"
