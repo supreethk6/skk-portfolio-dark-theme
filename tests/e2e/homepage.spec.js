@@ -33,6 +33,26 @@ test.describe('Homepage — structural invariants', () => {
     expect(text.trim().length).toBeGreaterThan(20);
   });
 
+  test('impact section shows 8 metrics', async ({ page }) => {
+    await page.goto('/index.html');
+    const grid = page.locator('.ds-impact-grid');
+    await expect(grid).toBeVisible();
+    const stats = grid.locator('.ds-impact-stat');
+    await expect(stats).toHaveCount(8);
+  });
+
+  test('impact section sits above the resume section', async ({ page }) => {
+    await page.goto('/index.html');
+    const impactBox = await page.locator('.ds-impact-section').boundingBox();
+    const resumeBox = await page.locator('.ds-resume-section').boundingBox();
+    expect(impactBox.y).toBeLessThan(resumeBox.y);
+  });
+
+  test('impact section names FedRAMP', async ({ page }) => {
+    await page.goto('/index.html');
+    await expect(page.locator('.ds-impact-section')).toContainText(/FedRAMP/);
+  });
+
   test('hero section is visible above the fold', async ({ page }) => {
     await page.goto('/index.html');
     const banner = page.locator('.ds-banner');
