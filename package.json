@@ -1,0 +1,33 @@
+{
+  "name": "skk-portfolio-dark-theme",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Personal portfolio site for Supreeth Kumar K — Technical Program Manager & Chief Architect (Autonomy, Robotics & AI Systems)",
+  "author": "Supreeth Kumar K (SKK) <supreethk666@gmail.com>",
+  "homepage": "https://supreethk6.github.io/skk-portfolio-dark-theme/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/supreethk6/skk-portfolio-dark-theme.git"
+  },
+  "scripts": {
+    "serve": "http-server -p 8080 -c-1 --silent .",
+    "lint:html": "html-validate \"index.html\" \"projects/**/*.html\"",
+    "lint:css": "stylelint \"assets/css/**/*.css\"",
+    "lint": "npm run lint:html && npm run lint:css",
+    "test:links": "lychee --config lychee.toml --no-progress --offline index.html projects/**/*.html",
+    "test:e2e": "playwright test",
+    "test:lighthouse": "lhci autorun",
+    "test": "npm run lint && npm run test:e2e",
+    "test:ci": "npm run lint && npm run test:links && npm run test:e2e && npm run test:lighthouse",
+    "precommit": "npm run lint"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "@lhci/cli": "^0.14.0",
+    "@playwright/test": "^1.48.0",
+    "html-validate": "^8.24.0",
+    "http-server": "^14.1.1",
+    "stylelint": "^16.10.0",
+    "stylelint-config-standard": "^36.0.1"
+  }
+}

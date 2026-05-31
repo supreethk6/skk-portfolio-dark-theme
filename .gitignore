@@ -1,0 +1,25 @@
+# Author: Supreeth Kumar K (SKK)
+node_modules/
+.env
+.env.local
+.env.*.local
+
+# Test artifacts
+test-results/
+playwright-report/
+playwright/.cache/
+.lighthouseci/
+coverage/
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*~
+
+# Build (reserved for future Next.js / Astro migration)
+.next/
+out/
+dist/
+build/
