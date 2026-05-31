@@ -1,0 +1,31 @@
+# Author: Supreeth Kumar K (SKK)
+# Lychee link checker config — used in CI to verify all internal + external links resolve.
+
+# Verbose level for CI output
+verbose = "info"
+
+# Cache results for 1 day so repeated CI runs are fast
+cache = true
+max_cache_age = "1d"
+
+# Timeouts
+timeout = 20
+max_redirects = 10
+max_retries = 2
+retry_wait_time = 2
+
+# Exclude social mailto and intentionally-broken anchors used during development
+exclude = [
+  "^mailto:",
+  "^#$",
+  "^javascript:",
+  # Resume link is the legacy Google Drive URL. feat/09-resume-host replaces it
+  # with a locally-hosted PDF and removes this exemption.
+  "^https://drive\\.google\\.com/file/d/10pQDPgUH6ooDHhPJvSL6isHBSLNjXQZ2"
+]
+
+# Treat GitHub rate-limit responses (429) as success so CI doesn't flap
+accept = [200, 206, 301, 302, 304, 307, 308, 429]
+
+# Custom user-agent (some sites block defaults)
+user_agent = "Mozilla/5.0 (compatible; SKK-Portfolio-LinkCheck/1.0)"
