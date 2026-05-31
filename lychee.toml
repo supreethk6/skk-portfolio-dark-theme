@@ -18,7 +18,10 @@ retry_wait_time = 2
 exclude = [
   "^mailto:",
   "^#$",
-  "^javascript:"
+  "^javascript:",
+  # Resume link is the legacy Google Drive URL. feat/09-resume-host replaces it
+  # with a locally-hosted PDF and removes this exemption.
+  "^https://drive\\.google\\.com/file/d/10pQDPgUH6ooDHhPJvSL6isHBSLNjXQZ2"
 ]
 
 # Treat GitHub rate-limit responses (429) as success so CI doesn't flap
