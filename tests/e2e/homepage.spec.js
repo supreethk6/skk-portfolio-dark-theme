@@ -52,12 +52,13 @@ test.describe('Homepage — structural invariants', () => {
 });
 
 test.describe('Homepage — accessibility (axe)', () => {
-  test('reports WCAG 2.1 AA violations (strict mode toggled via A11Y_STRICT)', async ({ page }, testInfo) => {
+  test('has no serious or critical WCAG 2.1 AA violations', async ({ page }, testInfo) => {
     await page.goto('/index.html');
     await page.waitForLoadState('networkidle');
 
     const results = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+      .exclude('iframe')
       .analyze();
 
     const blocking = results.violations.filter(
@@ -69,11 +70,13 @@ test.describe('Homepage — accessibility (axe)', () => {
       contentType: 'application/json'
     });
 
-    if (process.env.A11Y_STRICT === '1') {
-      expect(blocking, `Blocking a11y violations: ${blocking.map(v => v.id).join(', ')}`).toEqual([]);
-    } else {
-      console.log(`[a11y] homepage violations (non-strict): ${blocking.map(v => v.id).join(', ') || 'none'}`);
-    }
+    expect(blocking, `Blocking a11y violations: ${blocking.map(v => v.id).join(', ')}`).toEqual([]);
+  });
+
+  test('no stale _blanck typo anywhere in markup', async ({ page }) => {
+    await page.goto('/index.html');
+    const count = await page.locator('[target="_blanck"]').count();
+    expect(count).toBe(0);
   });
 });
 

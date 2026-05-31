@@ -10,10 +10,6 @@
     "no-duplicate-selectors": null,
     "comment-empty-line-before": null,
     "rule-empty-line-before": null,
-    "selector-pseudo-class-no-unknown": [
-      true,
-      { "ignorePseudoClasses": ["alst-child"], "severity": "warning" }
-    ],
     "declaration-block-single-line-max-declarations": null,
     "comment-whitespace-inside": null,
     "media-feature-range-notation": null,
