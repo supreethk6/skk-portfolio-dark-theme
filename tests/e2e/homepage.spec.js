@@ -25,6 +25,16 @@ test.describe('Homepage — structural invariants', () => {
     await expect(page.locator('.ds-banner-sub')).toContainText(/Autonomy|Robotics|AI/i);
   });
 
+  test('resume section copy is TPM / Chief Architect framing', async ({ page }) => {
+    await page.goto('/index.html');
+    const section = page.locator('.ds-resume-section');
+    await expect(section).toContainText(/Technical Program Manager/i);
+    await expect(section).toContainText(/Chief Architect/i);
+    await expect(section).toContainText(/FedRAMP/i);
+    await expect(section).not.toContainText(/Senior Robotics Software Engineer/i);
+    await expect(section).not.toContainText(/passionate about building excellent robots/i);
+  });
+
   test('hero tagline is visible and non-empty', async ({ page }) => {
     await page.goto('/index.html');
     const tagline = page.locator('.ds-banner-tagline');
