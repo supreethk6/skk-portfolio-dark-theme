@@ -174,6 +174,29 @@ test.describe('Homepage — structural invariants', () => {
     await expect(section).toContainText(/Air Force/i);
   });
 
+  test('contact section shows pro email, phone, and Cal.com link', async ({ page }) => {
+    await page.goto('/index.html');
+    const section = page.locator('.ds-contact-section');
+    await expect(section).toBeVisible();
+
+    const emailLink = section.locator('a[href^="mailto:"]');
+    await expect(emailLink).toHaveAttribute('href', 'mailto:supreethk666@gmail.com');
+
+    const phoneLink = section.locator('a[href^="tel:"]');
+    await expect(phoneLink).toHaveAttribute('href', /tel:\+16469323263/);
+
+    const calLink = section.locator('a[href*="cal.com/supreeth-kumar-k"]');
+    await expect(calLink).toBeVisible();
+    await expect(calLink).toHaveAttribute('target', '_blank');
+    await expect(calLink).toHaveAttribute('rel', /noopener/);
+  });
+
+  test('no NYU student email anywhere on the page', async ({ page }) => {
+    await page.goto('/index.html');
+    const html = await page.content();
+    expect(html).not.toMatch(/supreeth\.kumar@nyu\.edu/i);
+  });
+
   test('mission section sits after thought leadership and before testimonials', async ({ page }) => {
     await page.goto('/index.html');
     const leadershipBox = await page.locator('.ds-leadership-section').boundingBox();
