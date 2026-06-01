@@ -109,6 +109,26 @@ test.describe('Homepage — structural invariants', () => {
     await expect(page.locator('.ds-testimonials-section')).toBeVisible();
   });
 
+  test('testimonials slider has all 7 entries', async ({ page }) => {
+    await page.goto('/index.html');
+    await page.waitForFunction(() => {
+      const el = document.querySelector('.ds-testimonials-slider');
+      return el && el.classList.contains('slick-initialized');
+    });
+    const loops = page.locator('.ds-testimonials-loop:not(.slick-cloned)');
+    await expect(loops).toHaveCount(7);
+  });
+
+  test('first testimonial in original DOM order is Hen-You Tan', async ({ page }) => {
+    await page.goto('/index.html');
+    await page.waitForFunction(() => {
+      const el = document.querySelector('.ds-testimonials-slider');
+      return el && el.classList.contains('slick-initialized');
+    });
+    const first = page.locator('.ds-testimonials-loop[data-slick-index="0"]');
+    await expect(first).toContainText(/Hen-You Tan/i);
+  });
+
   test('footer renders with copyright', async ({ page }) => {
     await page.goto('/index.html');
     const footer = page.locator('.ds-footer');
