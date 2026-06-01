@@ -883,10 +883,68 @@ svg,img { max-width: 100%; height: auto; }
 /*-----------------------------------------------------------------
   6. >>> Email Style
 ----------------------------------------------------------------*/
-.ds-email-section{padding: 7.5rem 0; background-color: #CBFE00; text-align: center;}
-.ds-email-section h2{ font-size: 3.75rem;color: #000; margin-bottom: 1.875rem }
-.ds-email-section a{ font-size:1.25rem; font-weight: 500; text-decoration: underline;  }
-.ds-email-section a:hover{ color: #000; text-decoration: none; }
+.ds-contact-section {
+	padding: 7.5rem 0;
+	background-color: #CBFE00;
+	text-align: center;
+}
+.ds-contact-section h2 {
+	font-size: 3rem;
+	line-height: 1.15;
+	color: #000;
+	margin: 0 0 1rem;
+}
+.ds-contact-sub {
+	font-family: 'Poppins', sans-serif;
+	font-size: 1.0625rem;
+	line-height: 1.6;
+	color: #1a1a1a;
+	max-width: 38rem;
+	margin: 0 auto 2.5rem;
+}
+.ds-contact-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	justify-content: center;
+}
+.ds-contact-cta {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-family: 'Poppins', sans-serif;
+	font-size: 0.9375rem;
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	padding: 0.875rem 1.5rem;
+	min-height: 48px;
+	border: 2px solid #000;
+	border-radius: 0.25rem;
+	color: #000;
+	background-color: transparent;
+	text-decoration: none;
+	transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+.ds-contact-cta:hover,
+.ds-contact-cta:focus-visible {
+	background-color: #000;
+	color: #CBFE00;
+	text-decoration: none;
+	transform: translateY(-2px);
+	outline: none;
+}
+.ds-contact-cta--primary {
+	background-color: #000;
+	color: #CBFE00;
+}
+.ds-contact-cta--primary:hover,
+.ds-contact-cta--primary:focus-visible {
+	background-color: #1a1a1a;
+	color: #CBFE00;
+}
+.ds-contact-cta i {
+	font-size: 1.125rem;
+}
 /*-----------------------------------------------------------------
   7. >>> Footer Style
 ----------------------------------------------------------------*/
@@ -917,7 +975,7 @@ svg,img { max-width: 100%; height: auto; }
 	.ds-banner figure{ width: 90%; margin: 0 auto; margin-top: 40px }
 	.ds-image-shadow {box-shadow:20px 20px #c7f900;}
 	.ds-banner {margin-bottom: 3.5rem;}
-	.ds-resume-section,.ds-projects-section,.ds-testimonials-section,.ds-email-section{ padding: 3.5rem 0 }
+	.ds-resume-section,.ds-projects-section,.ds-testimonials-section,.ds-contact-section{ padding: 3.5rem 0 }
 	.ds-resume-section h2,.ds-projects-section h2{ max-width: 100% }
 	.ds-projects-section h2 span{ margin-bottom: 0 }
 	.ds-projects-listing-section {margin-top: 3rem;}
@@ -936,7 +994,9 @@ svg,img { max-width: 100%; height: auto; }
 	.ds-mission-card { padding: 1.75rem; }
 	.ds-mission-card h3 { font-size: 1.375rem; }
 	.ds-testimonials-loop article{ font-size:1rem; line-height: 2rem  }
-	.ds-email-section h2{ font-size: 2rem }
+	.ds-contact-section h2{ font-size: 2rem }
+	.ds-contact-actions { flex-direction: column; align-items: stretch; gap: 0.625rem; }
+	.ds-contact-cta { justify-content: center; }
 	.ds-testimonials-slider .slick-arrow{width: 2.75rem;height: 2.75rem;line-height: 2.75rem;}
 }
 
