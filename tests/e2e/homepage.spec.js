@@ -135,6 +135,30 @@ test.describe('Homepage — structural invariants', () => {
     expect(response.status()).toBe(200);
   });
 
+  test('thought leadership section names CMU MRSD', async ({ page }) => {
+    await page.goto('/index.html');
+    const section = page.locator('.ds-leadership-section');
+    await expect(section).toBeVisible();
+    await expect(section).toContainText(/Carnegie Mellon/i);
+    await expect(section).toContainText(/MRSD/i);
+  });
+
+  test('thought leadership section names NYU NSF', async ({ page }) => {
+    await page.goto('/index.html');
+    const section = page.locator('.ds-leadership-section');
+    await expect(section).toContainText(/New York University|NYU/i);
+    await expect(section).toContainText(/NSF/i);
+  });
+
+  test('thought leadership sits between projects and testimonials', async ({ page }) => {
+    await page.goto('/index.html');
+    const projectsBox = await page.locator('.ds-projects-section').boundingBox();
+    const leadershipBox = await page.locator('.ds-leadership-section').boundingBox();
+    const testimonialsBox = await page.locator('.ds-testimonials-section').boundingBox();
+    expect(leadershipBox.y).toBeGreaterThan(projectsBox.y);
+    expect(leadershipBox.y).toBeLessThan(testimonialsBox.y);
+  });
+
   test('last-updated stamp is visible and current', async ({ page }) => {
     await page.goto('/index.html');
     const stamp = page.locator('.ds-resume-updated');
