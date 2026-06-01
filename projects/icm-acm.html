@@ -1,0 +1,73 @@
+<!-- Author: Supreeth Kumar K (SKK) -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="ICM and ACM Modular IoT Platforms — edge-compute platform powering on-device AI threat detection. SKK was Chief Architect and Technical Program Manager.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="../assets/css/main.css" rel="stylesheet">
+    <title>SKK &mdash; ICM &amp; ACM Modular IoT Platforms</title>
+  </head>
+  <body>
+    <header class="ds-header">
+      <div class="container">
+        <div class="ds-logo"><a href="../index.html">S K K </a></div>
+      </div>
+    </header>
+
+    <main>
+      <section class="ds-project-detail">
+        <div class="container">
+          <span class="ds-project-eyebrow">Chief Architect &amp; Technical Program Manager</span>
+          <h1 class="ds-project-title">ICM &amp; ACM Modular IoT Platforms</h1>
+          <p class="ds-project-lede">
+            A modular edge-compute platform that powers on-device AI threat detection across the robot fleet &mdash; built so a single hardware family supports plug-and-play sensors and OTA-deployable workloads.
+          </p>
+
+          <h2>What I built</h2>
+          <p>
+            I architected the compute and communication layer that sits between the robot's sensors and the cloud. The goal: keep latency-critical inference on-device, keep the network resilient across intermittent connectivity, and let the platform team ship new models without re-flashing hardware in the field.
+          </p>
+
+          <h2>Architecture highlights</h2>
+          <ul>
+            <li><strong>Compute:</strong> NVIDIA Jetson Orin as the edge inference substrate. Containerized microservices with Docker, orchestrated by Kubernetes for OTA updates and graceful rollouts.</li>
+            <li><strong>Hardware abstraction:</strong> A clean HAL boundary that allows new sensor classes to be wired in without touching higher-level perception code.</li>
+            <li><strong>Communication:</strong> Multi-protocol stack with a store-and-forward queue for intermittent connectivity. 99.9% message delivery measured across the deployed fleet.</li>
+            <li><strong>Edge AI:</strong> Quantized TensorFlow Lite models for on-device inference. INT8 quantization cut model size 4&times; while maintaining 95%+ accuracy, enabling real-time threat detection without a cloud round-trip.</li>
+          </ul>
+
+          <h2>Tech stack</h2>
+          <ul class="ds-tech-chips">
+            <li>NVIDIA Jetson Orin</li><li>Docker</li><li>Kubernetes</li><li>TensorFlow Lite</li><li>INT8 quantization</li><li>OTA updates</li><li>Hardware Abstraction Layer</li><li>MQTT</li><li>Store-and-forward queue</li><li>C++</li><li>Python</li>
+          </ul>
+
+          <h2>Outcome</h2>
+          <ul>
+            <li>Real-time threat detection running entirely on-device, no cloud dependency.</li>
+            <li>4&times; smaller models with 95%+ retained accuracy.</li>
+            <li>99.9% message delivery across intermittent networks.</li>
+            <li>Single hardware family supporting multiple robot platforms.</li>
+          </ul>
+
+          <a class="ds-project-back" href="../index.html"><i class="ri-arrow-left-line" aria-hidden="true"></i> Back to all projects</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="ds-footer">
+      <div class="container">
+        <span class="ds-copyright">Copyright &copy; 2026 &mdash; Supreeth Kumar K</span>
+      </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

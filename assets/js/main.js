@@ -23,4 +23,20 @@ jQuery(document).ready(function ($) {
 			nextArrow: nextArrow
 		});
 	}
+
+	if ($('.ds-projects-slider').length) {
+		$('.ds-projects-slider').slick({
+			infinite: true,
+			arrows: true,
+			autoplay: false,
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			prevArrow: prevArrow,
+			nextArrow: nextArrow,
+			responsive: [
+				{ breakpoint: 992, settings: { slidesToShow: 2 } },
+				{ breakpoint: 768, settings: { slidesToShow: 1 } }
+			]
+		});
+	}
 });

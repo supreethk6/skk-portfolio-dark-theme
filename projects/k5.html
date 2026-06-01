@@ -1,0 +1,76 @@
+<!-- Author: Supreeth Kumar K (SKK) -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="K5 5th Generation Robot — self-balancing security platform. 100+ robots deployed, $20M+ revenue. SKK was Chief Architect and Technical Program Manager.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="../assets/css/main.css" rel="stylesheet">
+    <title>SKK &mdash; K5 5th Generation Robot</title>
+  </head>
+  <body>
+    <header class="ds-header">
+      <div class="container">
+        <div class="ds-logo"><a href="../index.html">S K K </a></div>
+      </div>
+    </header>
+
+    <main>
+      <section class="ds-project-detail">
+        <div class="container">
+          <span class="ds-project-eyebrow">Chief Architect &amp; Technical Program Manager</span>
+          <h1 class="ds-project-title">K5 5th Generation Robot</h1>
+          <p class="ds-project-lede">
+            A two-wheeled self-balancing security robot deployed from NYPD Times Square to VA Medical Centers nationwide. 100+ robots in production, 3M+ patrol hours, $20M+ revenue, four-year client retention.
+          </p>
+
+          <h2>What I built</h2>
+          <p>
+            I architected and managed the complete product lifecycle for Knightscope's flagship platform &mdash; from a clean-sheet redesign through full production replacement of the legacy fleet. The system runs indoors and outdoors, balances dynamically, talks to a cloud fleet-management plane, and stays online 24/7 across hundreds of customer sites.
+          </p>
+
+          <h2>Architecture highlights</h2>
+          <ul>
+            <li><strong>Navigation stack:</strong> Led the ROS 1 to ROS 2 migration. AMCL with particle-filter optimization, DWA local planner, costmap2d with inflation layers, and Velodyne VLP-16 LiDAR for &plusmn;5&nbsp;cm indoor positioning.</li>
+            <li><strong>SLAM:</strong> Gmapping and Cartographer for real-time map building. Loop-closure detection, scan-to-map matching, and pose-graph optimization. Multi-floor deployments with automatic map switching on elevator detection.</li>
+            <li><strong>Balance control:</strong> Cascaded PID for the self-balancing platform &mdash; 1&nbsp;kHz IMU inner loop, 100&nbsp;Hz velocity outer loop. Complementary filter fused IMU with wheel encoders.</li>
+            <li><strong>Fleet telemetry:</strong> MQTT pipeline streaming 50+ sensor parameters at 10&nbsp;Hz to AWS IoT Core. Grafana dashboards for real-time fleet monitoring. Predictive maintenance via motor-current anomaly detection cut incidents 53%.</li>
+            <li><strong>Computer vision:</strong> OpenCV license-plate recognition, dlib HOG+SVM face detection, and FLIR Lepton thermal anomaly detection.</li>
+            <li><strong>Production scale:</strong> Replaced 100% of the legacy fleet. Owned full lifecycle &mdash; design, production, deployment.</li>
+          </ul>
+
+          <h2>Tech stack</h2>
+          <ul class="ds-tech-chips">
+            <li>ROS 1 &rarr; ROS 2</li><li>AMCL</li><li>DWA</li><li>Gmapping</li><li>Cartographer</li><li>costmap2d</li><li>PID</li><li>MQTT</li><li>AWS IoT Core</li><li>Grafana</li><li>OpenCV</li><li>dlib</li><li>FLIR Lepton</li><li>Velodyne VLP-16</li><li>C++</li><li>Python</li><li>Linux</li>
+          </ul>
+
+          <h2>Outcome</h2>
+          <ul>
+            <li>100+ robots deployed across the United States.</li>
+            <li>3M+ operational patrol hours, zero safety incidents.</li>
+            <li>$20M+ in revenue generated.</li>
+            <li>53% reduction in operational incidents through predictive maintenance.</li>
+            <li>Four-year average client retention.</li>
+          </ul>
+
+          <a class="ds-project-back" href="../index.html"><i class="ri-arrow-left-line" aria-hidden="true"></i> Back to all projects</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="ds-footer">
+      <div class="container">
+        <span class="ds-copyright">Copyright &copy; 2026 &mdash; Supreeth Kumar K</span>
+      </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

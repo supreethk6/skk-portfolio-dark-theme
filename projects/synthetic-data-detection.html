@@ -1,0 +1,72 @@
+<!-- Author: Supreeth Kumar K (SKK) -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Synthetic Data Object Detection — Faster R-CNN trained on GTA V game-engine data with domain randomization. 92% mAP on KITTI.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="../assets/css/main.css" rel="stylesheet">
+    <title>SKK &mdash; Synthetic Data Object Detection</title>
+  </head>
+  <body>
+    <header class="ds-header">
+      <div class="container">
+        <div class="ds-logo"><a href="../index.html">S K K </a></div>
+      </div>
+    </header>
+
+    <main>
+      <section class="ds-project-detail">
+        <div class="container">
+          <span class="ds-project-eyebrow">R&amp;D Engineer &mdash; Columbus AI</span>
+          <h1 class="ds-project-title">Synthetic Data Object Detection</h1>
+          <p class="ds-project-lede">
+            A detector trained almost entirely on data the world doesn't actually have to exist for &mdash; 100K+ images rendered from a game engine with domain randomization, validated against real-world KITTI at 92% mAP.
+          </p>
+
+          <h2>What I built</h2>
+          <p>
+            Real labelled driving data is expensive. I built a synthetic-data pipeline that pulled scenes from the GTA V engine under randomized lighting, weather, camera angle, and traffic density, generated bounding-box labels automatically, and fed them to a Faster R-CNN. The model transferred to the KITTI benchmark with 92% mAP &mdash; competitive with detectors trained on real data alone.
+          </p>
+
+          <h2>Architecture highlights</h2>
+          <ul>
+            <li><strong>Synthetic data generation:</strong> Game-engine rendering with programmatic scene control. Domain randomization on lighting, weather, camera placement, and traffic density.</li>
+            <li><strong>Data augmentation:</strong> 100K+ labelled images produced through the augmentation pipeline.</li>
+            <li><strong>Detector:</strong> Custom Faster R-CNN trained on the synthetic set, evaluated zero-shot on KITTI.</li>
+            <li><strong>Validation:</strong> 92% mean Average Precision (mAP) on the KITTI benchmark.</li>
+          </ul>
+
+          <h2>Tech stack</h2>
+          <ul class="ds-tech-chips">
+            <li>Faster R-CNN</li><li>GTA V engine</li><li>Domain randomization</li><li>Data augmentation</li><li>PyTorch</li><li>OpenCV</li><li>Python</li><li>KITTI</li>
+          </ul>
+
+          <h2>Outcome</h2>
+          <ul>
+            <li>92% mAP on the KITTI object-detection benchmark.</li>
+            <li>100K+ labelled training images produced without manual annotation cost.</li>
+            <li>Demonstrated viability of game-engine-based synthetic data for production detectors.</li>
+          </ul>
+
+          <a class="ds-project-back" href="../index.html"><i class="ri-arrow-left-line" aria-hidden="true"></i> Back to all projects</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="ds-footer">
+      <div class="container">
+        <span class="ds-copyright">Copyright &copy; 2026 &mdash; Supreeth Kumar K</span>
+      </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

@@ -3,15 +3,14 @@
 
 const { test, expect } = require('@playwright/test');
 
-test('project detail navigation works (URL-based, robust to overlay)', async ({ page }) => {
+test('project detail navigation works', async ({ page }) => {
   await page.goto('/index.html');
-  const firstProjectLink = page.locator('.ds-projects-loop a.ds-link-button').first();
-  const href = await firstProjectLink.getAttribute('href');
-  if (!href || href === '#' || href.startsWith('http')) {
-    test.skip(true, 'No internal project link to follow');
-    return;
-  }
-  await page.goto(`/${href}`);
+  await page.waitForFunction(() => {
+    const el = document.querySelector('.ds-projects-slider');
+    return el && el.classList.contains('slick-initialized');
+  });
+  const firstProjectLink = page.locator('.slick-slide:not(.slick-cloned) .ds-project-card-link').first();
+  await firstProjectLink.click();
   await page.waitForLoadState('domcontentloaded');
   await expect(page.locator('main').first()).toBeVisible();
   await page.goBack();
@@ -19,7 +18,7 @@ test('project detail navigation works (URL-based, robust to overlay)', async ({ 
 });
 
 test('logo links back to homepage from project page', async ({ page }) => {
-  await page.goto('/projects/project-1.html');
+  await page.goto('/projects/k7.html');
   const logo = page.locator('.ds-logo a');
   const href = await logo.getAttribute('href');
   expect(href).toMatch(/index\.html$/);

@@ -1,0 +1,77 @@
+<!-- Author: Supreeth Kumar K (SKK) -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="K7 Autonomous Security Robot — outdoor four-wheeled autonomous patrol platform. SKK was Chief Architect and Technical Program Manager.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="../assets/css/main.css" rel="stylesheet">
+    <title>SKK &mdash; K7 Autonomous Security Robot</title>
+  </head>
+  <body>
+    <header class="ds-header">
+      <div class="container">
+        <div class="ds-logo"><a href="../index.html">S K K </a></div>
+      </div>
+    </header>
+
+    <main>
+      <section class="ds-project-detail">
+        <div class="container">
+          <span class="ds-project-eyebrow">Chief Architect &amp; Technical Program Manager</span>
+          <h1 class="ds-project-title">K7 Autonomous Security Robot</h1>
+          <p class="ds-project-lede">
+            An outdoor four-wheeled autonomous patrol platform built for military bases, airports, and critical infrastructure. Alpha Prototype Gate approved; contributing to a U.S. Air Force SBIR contract.
+          </p>
+
+          <h2>What I built</h2>
+          <p>
+            I architected the end-to-end autonomy stack on top of ROS 2 Humble and Autoware Universe, and led a cross-functional team of more than twelve engineers from concept through alpha prototype. The vehicle operates at low-speed-vehicle regime in pedestrian-dense and mixed-traffic outdoor environments, so the design favors deterministic safety, layered fail-safes, and an orchestration model that can switch behaviors in real time.
+          </p>
+
+          <h2>Architecture highlights</h2>
+          <ul>
+            <li><strong>Localization:</strong> NDT scan matching against a pre-built point-cloud map plus an Extended Kalman Filter fusing GNSS, IMU, wheel odometry, and visual odometry. Sub-10&nbsp;cm accuracy at alpha.</li>
+            <li><strong>Mapping:</strong> Lanelet2 vector maps with per-site projector origin; offline PCD maps from a LIO-SAM fork; multi-floor support.</li>
+            <li><strong>Perception:</strong> Multi-modal pipeline &mdash; LiDAR + radar + thermal + RGB + IMU + GPS &mdash; with CenterPoint 3D detection on TensorRT, multi-object Kalman tracker (CV/CTRV/bicycle models), map-based prediction, and a probabilistic occupancy grid. 360&deg; obstacle detection at 20&nbsp;Hz.</li>
+            <li><strong>Planning:</strong> Three-layer Autoware planner &mdash; behavior path planner, behavior velocity planner, motion velocity planner &mdash; tuned for patrol-zone turnarounds, pedestrian-heavy environments, and dock approach via hybrid A*.</li>
+            <li><strong>Control:</strong> MPC lateral controller (kinematic bicycle, OSQP solver, 50&nbsp;ms loop) + PID longitudinal controller with slope compensation, behind a vehicle command gate validated by six independent safety checks.</li>
+            <li><strong>Orchestration:</strong> BehaviorTree.CPP v4 sits above the Autoware stack as the orchestration substrate &mdash; modular subtrees switch between manual, service, user, and autonomous modes, dock entry / exit, and patrol routes. Reactive sequences enable real-time mode switching without explicit state-transition tables.</li>
+            <li><strong>Real-time systems:</strong> PREEMPT_RT Linux kernel; hardware-heartbeat safety watchdog; CAN-bus vehicle interface with fail-safe stop behavior on any chassis fault or e-stop.</li>
+            <li><strong>Edge AI:</strong> RealSense D456 stereo + NVIDIA Jetson Orin for media-stack inference; TensorRT-optimized models for object detection, multi-object tracking, and acoustic classification with under 100&nbsp;ms inference latency.</li>
+          </ul>
+
+          <h2>Tech stack</h2>
+          <ul class="ds-tech-chips">
+            <li>ROS 2 Humble</li><li>Autoware Universe</li><li>NDT</li><li>EKF</li><li>MPC</li><li>Hybrid A*</li><li>Lanelet2</li><li>CenterPoint</li><li>TensorRT</li><li>BehaviorTree.CPP</li><li>CycloneDDS</li><li>PREEMPT_RT</li><li>CAN bus</li><li>NVIDIA Jetson Orin</li><li>RealSense D456</li><li>C++</li><li>Python</li><li>Docker</li>
+          </ul>
+
+          <h2>Outcome</h2>
+          <ul>
+            <li>Alpha Prototype Gate approved, on track to Beta.</li>
+            <li>Contributing to a U.S. Air Force SBIR contract.</li>
+            <li>Led concept &rarr; alpha across a team of more than twelve engineers.</li>
+            <li>Delivered Board-level presentations and DoD / DHS demonstrations.</li>
+          </ul>
+
+          <a class="ds-project-back" href="../index.html"><i class="ri-arrow-left-line" aria-hidden="true"></i> Back to all projects</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="ds-footer">
+      <div class="container">
+        <span class="ds-copyright">Copyright &copy; 2026 &mdash; Supreeth Kumar K</span>
+      </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>
