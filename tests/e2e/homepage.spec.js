@@ -159,6 +159,30 @@ test.describe('Homepage — structural invariants', () => {
     expect(leadershipBox.y).toBeLessThan(testimonialsBox.y);
   });
 
+  test('mission section shows 3 strategic impact cards', async ({ page }) => {
+    await page.goto('/index.html');
+    const section = page.locator('.ds-mission-section');
+    await expect(section).toBeVisible();
+    const cards = section.locator('.ds-mission-card');
+    await expect(cards).toHaveCount(3);
+  });
+
+  test('mission section names FedRAMP and the Air Force', async ({ page }) => {
+    await page.goto('/index.html');
+    const section = page.locator('.ds-mission-section');
+    await expect(section).toContainText(/FedRAMP/);
+    await expect(section).toContainText(/Air Force/i);
+  });
+
+  test('mission section sits after thought leadership and before testimonials', async ({ page }) => {
+    await page.goto('/index.html');
+    const leadershipBox = await page.locator('.ds-leadership-section').boundingBox();
+    const missionBox = await page.locator('.ds-mission-section').boundingBox();
+    const testimonialsBox = await page.locator('.ds-testimonials-section').boundingBox();
+    expect(missionBox.y).toBeGreaterThan(leadershipBox.y);
+    expect(missionBox.y).toBeLessThan(testimonialsBox.y);
+  });
+
   test('last-updated stamp is visible and current', async ({ page }) => {
     await page.goto('/index.html');
     const stamp = page.locator('.ds-resume-updated');
