@@ -174,6 +174,38 @@ test.describe('Homepage — structural invariants', () => {
     await expect(section).toContainText(/Air Force/i);
   });
 
+  test('recognition section shows 3 cards', async ({ page }) => {
+    await page.goto('/index.html');
+    const section = page.locator('.ds-recognition-section');
+    await expect(section).toBeVisible();
+    await expect(section.locator('.ds-recognition-card')).toHaveCount(3);
+  });
+
+  test('recognition section names ASCE and NSF', async ({ page }) => {
+    await page.goto('/index.html');
+    const section = page.locator('.ds-recognition-section');
+    await expect(section).toContainText(/ASCE CRC2020/);
+    await expect(section).toContainText(/NSF/);
+  });
+
+  test('recognition GitHub CTA opens in a new tab with noopener', async ({ page }) => {
+    await page.goto('/index.html');
+    const cta = page.locator('.ds-recognition-cta');
+    await expect(cta).toBeVisible();
+    await expect(cta).toHaveAttribute('target', '_blank');
+    await expect(cta).toHaveAttribute('rel', /noopener/);
+    await expect(cta).toHaveAttribute('href', /github\.com\/supreethk6/);
+  });
+
+  test('recognition section sits between testimonials and contact', async ({ page }) => {
+    await page.goto('/index.html');
+    const testimonialsBox = await page.locator('.ds-testimonials-section').boundingBox();
+    const recognitionBox = await page.locator('.ds-recognition-section').boundingBox();
+    const contactBox = await page.locator('.ds-contact-section').boundingBox();
+    expect(recognitionBox.y).toBeGreaterThan(testimonialsBox.y);
+    expect(recognitionBox.y).toBeLessThan(contactBox.y);
+  });
+
   test('contact section shows pro email, phone, and Cal.com link', async ({ page }) => {
     await page.goto('/index.html');
     const section = page.locator('.ds-contact-section');
