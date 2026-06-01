@@ -119,6 +119,30 @@ test.describe('Homepage — structural invariants', () => {
     await expect(loops).toHaveCount(7);
   });
 
+  test('resume link points to local PDF, not Google Drive', async ({ page }) => {
+    await page.goto('/index.html');
+    const link = page.locator('.ds-download-button');
+    await expect(link).toBeVisible();
+    const href = await link.getAttribute('href');
+    expect(href).toMatch(/\.pdf$/);
+    expect(href).not.toMatch(/drive\.google\.com/);
+  });
+
+  test('resume PDF returns 200 from the static server', async ({ page }) => {
+    await page.goto('/index.html');
+    const href = await page.locator('.ds-download-button').getAttribute('href');
+    const response = await page.request.get(`/${href}`);
+    expect(response.status()).toBe(200);
+  });
+
+  test('last-updated stamp is visible and current', async ({ page }) => {
+    await page.goto('/index.html');
+    const stamp = page.locator('.ds-resume-updated');
+    await expect(stamp).toBeVisible();
+    await expect(stamp).toContainText(/last updated/i);
+    await expect(stamp).toContainText(/202[5-9]|203\d/);
+  });
+
   test('first testimonial in original DOM order is Hen-You Tan', async ({ page }) => {
     await page.goto('/index.html');
     await page.waitForFunction(() => {
